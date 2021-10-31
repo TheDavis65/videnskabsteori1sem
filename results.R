@@ -168,8 +168,63 @@ barplot((allQ3),beside=TRUE,
         names.arg = c("7  -  33", "18  -  22", "12  -  28"),
         legend = c("ja","nej"), args.legend = list(x = "topright", ncol = 1))
 
+
+## svar 1
+prct1y <- as.double(allQ1Y / 40 * 100)
+prct1y
+prct1n <- as.double(allQ1N / 40 * 100)
+svar1 <- c(allQ1Y, allQ1N)
+allQ3 <- data.frame(svar1)
+allQ3 <- as.matrix(allQ3)
+coul <- brewer.pal(5, "Set2") 
+barplot((allQ3),beside=TRUE,
+        col = c("lightblue","#f59042"),
+        space = 1,
+        ylim = c(0, 40),
+        main = "Frygt for kunstig intelligens svar på spørgsmål 1",
+        ylab = "Antal deltagere",
+        xlab = "1.	Er du tryk ved at computere tager beslutninger om forhold der gælder liv og død?",
+        names.arg = c(prct1y, prct1n),
+        legend = c("% tryg","% ikke tryk"), args.legend = list(x = "topright", ncol = 1))
+
+## svar 2
+allQ2Y
+
+prct2y <- as.integer(allQ2Y / 40 * 100)
+prct2y
+prct2n <- as.integer(allQ2N / 40 * 100)
+svar2 <- c(allQ2Y, allQ2N)
+allQ3 <- data.frame(svar2)
+allQ3 <- as.matrix(allQ3)
+coul <- brewer.pal(5, "Set2") 
+barplot((allQ3),beside=TRUE,
+        col = c("lightblue","#f59042"),
+        space = 1,
+        ylim = c(0, 40),
+        main = "Frygt for kunstig intelligens svar på spørgsmål 2",
+        ylab = "Antal deltagere",
+        xlab = "2.	Vil du finde det sandsynligt at en computer ved en fejl vil kunne udløse en verdenskrig?",
+        names.arg = c(prct2y, prct2n),
+        legend = c("% sandsynligt","% ikke sandsynligt"), args.legend = list(x = "topright", ncol = 1))
   
-  
+
+## svar 3
+prct3y <- as.integer(allQ3Y / 40 * 100)
+prct3y
+prct3n <- as.integer(allQ3N / 40 * 100)
+svar3 <- c(allQ3Y, allQ3N)
+allQ3 <- data.frame(svar3)
+allQ3 <- as.matrix(allQ3)
+coul <- brewer.pal(5, "Set2") 
+barplot((allQ3),beside=TRUE,
+        col = c("lightblue","#f59042"),
+        space = 1,
+        ylim = c(0, 40),
+        main = "Frygt for kunstig intelligens svar på spørgsmål 3",
+        ylab = "Antal deltagere",
+        xlab = "3.	Er du tryk ved at lade dig transportere i en førerløs bil kun styret af kunstig intelligens?",
+        names.arg = c(prct3y, prct3n),
+        legend = c("% tryg","% ikke tryg"), args.legend = list(x = "topright", ncol = 1))
 #################### kunstig intelligens analyse for digitale indfødte  ###############################
 
 
@@ -180,6 +235,7 @@ View(replies)
 dinf <- filter(replies, replies$ReplyID & Reply_9 == "True") 
 dinf
 dinf <- sum(dinf)
+
 ## omdøber kolonner
 colnames(dinf) <- c("svarID","svar_1","svar_2","svar_3","svar_4","svar_5","svar_6","svar_7","svar_8","withOrWithout","gender")
 View(dinf)
@@ -226,6 +282,7 @@ dinfQ3
 coul <- brewer.pal(5, "Set2") 
 barplot((dinfQ3),beside=TRUE,
         col = c("blue","red"),
+        space = 1,
         ylim = c(0, 40),
         main = "Frygt for kunstig intelligens",
         ylab = "Antal deltagere",
@@ -234,6 +291,73 @@ barplot((dinfQ3),beside=TRUE,
         legend = c("ja","nej"), args.legend = list(x = "topright", ncol = 1))
 
   
+
+## svar 1a
+a <- as.double(dinfQ1Y / 15 * 100)
+prct1y <- format(round(a, 2), nsmall = 2)
+prct1y
+b <- as.double(dinfQ1N / 15 * 100)
+prct1n <- format(round(b, 2), nsmall = 2)
+svar1 <- c(dinfQ1Y, dinfQ1N)
+dinfQ3 <- data.frame(svar1)
+dinfQ3 <- as.matrix(dinfQ3)
+dinfQ3
+coul <- brewer.pal(5, "Set2") 
+barplot((dinfQ3),beside=TRUE,
+        col = c("#adf542","#f55142"),
+        space = 1,
+        ylim = c(0, 16),
+        main = "Frygt for kunstig intelligens svar på spørgsmål 1 Digitalt Indfødte",
+        ylab = "Antal deltagere",
+        xlab = "1.	Er du tryk ved at computere tager beslutninger om forhold der gælder liv og død?",
+        names.arg = c(prct1y,prct1n),
+        legend = c("% tryg", "% ikke tryg"), args.legend = list(x = "topright", ncol = 1))
+
+
+## svar 2a
+
+a <- as.double(dinfQ2Y / 15 * 100)
+prct1y <- format(round(a, 2), nsmall = 2)
+prct1y
+b <- as.double(dinfQ2N / 15 * 100)
+prct1n <- format(round(b, 2), nsmall = 2)
+svar2 <- c(dinfQ2Y, dinfQ2N)
+dinfQ3 <- data.frame(svar2)
+dinfQ3 <- as.matrix(dinfQ3)
+dinfQ3
+coul <- brewer.pal(5, "Set2") 
+barplot((dinfQ3),beside=TRUE,
+        col = c("#adf542","#f55142"),
+        space = 1,
+        ylim = c(0, 16),
+        main = "Frygt for kunstig intelligens svar på spørgsmål 2 Digitalt Indfødte",
+        ylab = "Antal deltagere",
+        xlab = "2.	Vil du finde det sandsynligt at en computer ved en fejl vil kunne udløse en verdenskrig?",
+        names.arg = c(prct1y,prct1n),
+        legend = c("% sandsynligt", "% ikke sandsynligt"), args.legend = list(x = "topright", ncol = 1))
+
+
+## svar 3a
+a <- as.double(dinfQ3Y / 15 * 100)
+prct1y <- format(round(a, 2), nsmall = 2)
+prct1y
+b <- as.double(dinfQ3N / 15 * 100)
+prct1n <- format(round(b, 2), nsmall = 2)
+svar3 <- c(dinfQ3Y, dinfQ3N)
+dinfQ3 <- data.frame(svar3)
+dinfQ3 <- as.matrix(dinfQ3)
+dinfQ3
+coul <- brewer.pal(5, "Set2") 
+barplot((dinfQ3),beside=TRUE,
+        col = c("#adf542","#f55142"),
+        space = 1,
+        ylim = c(0, 16),
+        main = "Frygt for kunstig intelligens svar på spørgsmål 3 Digitalt Indfødte",
+        ylab = "Antal deltagere",
+        xlab = "3.	Er du tryk ved at lade dig transportere i en førerløs bil kun styret af kunstig intelligens?",
+        names.arg = c(prct1y,prct1n),
+        legend = c("% tryg", "% ikke tryg"), args.legend = list(x = "topright", ncol = 1))
+
 
 #################### kunstig intelligens analyse for digitale indvandrere  ###############################
 
@@ -290,12 +414,77 @@ dinvQ3
 coul <- brewer.pal(5, "Set2") 
 barplot((dinvQ3),beside=TRUE,
         col = c("blue","red"),
+        space = 1,
         ylim = c(0, 40),
         main = "Frygt for kunstig intelligens",
         ylab = "Antal deltagere",
         xlab = "Digitalt indvandrere",
         names.arg = c("2  -  23", "10  -  15", "8  -  17"),
         legend = c("ja","nej"), args.legend = list(x = "topright", ncol = 1))
+
+
+## svar 1b
+a <- as.double(dinvQ1Y / 25 * 100)
+prct1y <- format(round(a, 2), nsmall = 2)
+prct1y
+b <- as.double(dinvQ1N / 25 * 100)
+prct1n <- format(round(b, 2), nsmall = 2)
+svar1 <- c(dinvQ1Y, dinvQ1N)
+dinvQ3 <- data.frame(svar1)
+dinvQ3 <- as.matrix(dinvQ3)
+dinvQ3
+coul <- brewer.pal(5, "Set2") 
+barplot((dinvQ3),beside=TRUE,
+        col = c("#4296f5","#f5ec42"),
+        space = 1,
+        ylim = c(0, 26),
+        main = "Frygt for kunstig intelligens svar på spørgsmål 1 Digitalt Indvandrere",
+        ylab = "Antal deltagere",
+        xlab = "1.	Er du tryk ved at computere tager beslutninger om forhold der gælder liv og død?",
+        names.arg = c(prct1y, prct1n),
+        legend = c("% ja","% nej"), args.legend = list(x = "topright", ncol = 1))
+
+## svar 2b
+a <- as.double(dinvQ2Y / 25 * 100)
+prct1y <- format(round(a, 2), nsmall = 2)
+prct1y
+b <- as.double(dinvQ2N / 25 * 100)
+prct1n <- format(round(b, 2), nsmall = 2)
+svar2 <- c(dinvQ2Y, dinvQ2N)
+dinvQ3 <- data.frame(svar2)
+dinvQ3 <- as.matrix(dinvQ3)
+dinvQ3
+coul <- brewer.pal(5, "Set2") 
+barplot((dinvQ3),beside=TRUE,
+        col = c("#4296f5","#f5ec42"),
+        space = 1,
+        ylim = c(0, 26),
+        main = "Frygt for kunstig intelligens svar på spørgsmål 2 Digitalt Indvandrere",
+        ylab = "Antal deltagere",
+        xlab = "2.	Vil du finde det sandsynligt at en computer ved en fejl vil kunne udløse en verdenskrig?",
+        names.arg = c(prct1y, prct1n),
+        legend = c("% sandsynligt","% ikke sandsynligt"), args.legend = list(x = "topright", ncol = 1))
+
+## svar 3b
+a <- as.double(dinvQ3Y / 25 * 100)
+prct1y <- format(round(a, 2), nsmall = 2)
+prct1y
+b <- as.double(dinvQ3N / 25 * 100)
+prct1n <- format(round(b, 2), nsmall = 2)
+svar3 <- c(dinvQ3Y, dinvQ3N)
+dinvQ3 <- data.frame(svar3)
+dinvQ3 <- as.matrix(dinvQ3)
+dinvQ3
+coul <- brewer.pal(5, "Set2") 
+barplot((dinvQ3),beside=TRUE,
+        col = c("#4296f5","#f5ec42"),
+        space = 1,
+        ylim = c(0, 26),
+        main = "Frygt for kunstig intelligens svar på spørgsmål 3 Digitalt Indvandrere",
+        ylab = "Antal deltagere",
+        xlab = "3.	Er du tryk ved at lade dig transportere i en førerløs bil kun styret af kunstig intelligens? ",
+        names.arg = c(prct1y, prct1n),
+        legend = c("% tryg","% ikke tryg"), args.legend = list(x = "topright", ncol = 1))
 
 #################### kunstig intelligens analyse for kvinder  ###############################
 replies <- read.csv("data/reply.csv")
@@ -351,12 +540,77 @@ womanQ3
 coul <- brewer.pal(5, "Set2") 
 barplot((womanQ3),beside=TRUE,
         col = c("blue","red"),
+        space = 1,
         ylim = c(0, 40),
         main = "Frygt for kunstig intelligens",
         ylab = "Antal deltagere",
         xlab = "Kvinder",
         names.arg = c("2  -  20", "11  -  11", "1  -  20"),
         legend = c("ja","nej"), args.legend = list(x = "topright", ncol = 1))
+
+## svar 1c
+a <- as.double(womanQ1Y / 22 * 100)
+prct1y <- format(round(a, 2), nsmall = 2)
+prct1y
+b <- as.double(womanQ1N / 22 * 100)
+prct1n <- format(round(b, 2), nsmall = 2)
+svar1 <- c(womanQ1Y, womanQ1N)
+womanQ3 <- data.frame(svar1)
+womanQ3 <- as.matrix(womanQ3)
+womanQ3
+coul <- brewer.pal(5, "Set2") 
+barplot((womanQ3),beside=TRUE,
+        col = c("#42f599","#7836eb"),
+        space = 1,
+        ylim = c(0, 23),
+        main = "Frygt for kunstig intelligens svar på spørgsmål 1 Kvinder",
+        ylab = "Antal deltagere",
+        xlab = "1.	Er du tryk ved at computere tager beslutninger om forhold der gælder liv og død?",
+        names.arg = c(prct1y,prct1n),
+        legend = c("% ja","% nej"), args.legend = list(x = "topright", ncol = 1))
+
+## svar 2c
+a <- as.double(womanQ2Y / 22 * 100)
+prct1y <- format(round(a, 2), nsmall = 2)
+prct1y
+b <- as.double(womanQ2N / 22 * 100)
+prct1n <- format(round(b, 2), nsmall = 2)
+svar2 <- c(womanQ2Y, womanQ2N)
+womanQ3 <- data.frame(svar2)
+womanQ3 <- as.matrix(womanQ3)
+womanQ3
+coul <- brewer.pal(5, "Set2") 
+barplot((womanQ3),beside=TRUE,
+        col = c("#42f599","#7836eb"),
+        space = 1,
+        ylim = c(0, 23),
+        main = "Frygt for kunstig intelligens svar på spørgsmål 2 Kvinder",
+        ylab = "Antal deltagere",
+        xlab = "2.	Vil du finde det sandsynligt at en computer ved en fejl vil kunne udløse en verdenskrig?",
+        names.arg = c(prct1y,prct1n),
+        legend = c("% sandsynligt","% ikke sandsynligt"), args.legend = list(x = "topright", ncol = 1))
+
+
+## svar 3c
+a <- as.double(womanQ3Y / 22 * 100)
+prct1y <- format(round(a, 2), nsmall = 2)
+prct1y
+b <- as.double(womanQ3N / 22 * 100)
+prct1n <- format(round(b, 2), nsmall = 2)
+svar3 <- c(womanQ3Y, womanQ3N)
+womanQ3 <- data.frame(svar3)
+womanQ3 <- as.matrix(womanQ3)
+womanQ3
+coul <- brewer.pal(5, "Set2") 
+barplot((womanQ3),beside=TRUE,
+        col = c("#42f599","#7836eb"),
+        space = 1,
+        ylim = c(0, 23),
+        main = "Frygt for kunstig intelligens svar på spørgsmål 3 Kvinder",
+        ylab = "Antal deltagere",
+        xlab = "3.	Er du tryk ved at lade dig transportere i en førerløs bil kun styret af kunstig intelligens?",
+        names.arg = c(prct1y,prct1n),
+        legend = c("% tryg","% ikke tryg"), args.legend = list(x = "topright", ncol = 1))
 
 
 #################### kunstig intelligens analyse for Mænd  ###############################
@@ -420,6 +674,71 @@ barplot((manQ3),beside=TRUE,
         xlab = "Mænd",
         names.arg = c("5  -  13", "7  -  11", "10  -  8"),
         legend = c("ja","nej"), args.legend = list(x = "topright", ncol = 1))
+
+
+## svar 1d
+a <- as.double(manQ1Y / 18 * 100)
+prct1y <- format(round(a, 2), nsmall = 2)
+prct1y
+b <- as.double(manQ1N / 18 * 100)
+prct1n <- format(round(b, 2), nsmall = 2)
+svar1 <- c(manQ1Y, manQ1N)
+manQ3 <- data.frame(svar1)
+manQ3 <- as.matrix(manQ3)
+manQ3
+coul <- brewer.pal(5, "Set2") 
+barplot((manQ3),beside=TRUE,
+        col = c("blue","red"),
+        space = 1,
+        ylim = c(0, 19),
+        main = "Frygt for kunstig intelligens svar på spørgsmål 1 Mænd",
+        ylab = "Antal deltagere",
+        xlab = "1.	Er du tryk ved at computere tager beslutninger om forhold der gælder liv og død?",
+        names.arg = c(prct1y,prct1n),
+        legend = c("% ja","% nej"), args.legend = list(x = "topright", ncol = 1))
+
+## svar 2d
+a <- as.double(manQ2Y / 18 * 100)
+prct1y <- format(round(a, 2), nsmall = 2)
+prct1y
+b <- as.double(manQ2N / 18 * 100)
+prct1n <- format(round(b, 2), nsmall = 2)
+svar2 <- c(manQ2Y, manQ2N)
+manQ3 <- data.frame(svar2)
+manQ3 <- as.matrix(manQ3)
+manQ3
+coul <- brewer.pal(5, "Set2") 
+barplot((manQ3),beside=TRUE,
+        col = c("blue","red"),
+        space = 1,
+        ylim = c(0, 19),
+        main = "Frygt for kunstig intelligens svar på spørgsmål 2 Mænd",
+        ylab = "Antal deltagere",
+        xlab = "2.	Vil du finde det sandsynligt at en computer ved en fejl vil kunne udløse en verdenskrig?",
+        names.arg = c(prct1y,prct1n),
+        legend = c("% sandsynligt","% ikke sandsynligt"), args.legend = list(x = "topright", ncol = 1))
+
+## svar 3d
+
+a <- as.double(manQ3Y / 18 * 100)
+prct1y <- format(round(a, 2), nsmall = 2)
+prct1y
+b <- as.double(manQ3N / 18 * 100)
+prct1n <- format(round(b, 2), nsmall = 2)
+svar3 <- c(manQ3Y, manQ3N)
+manQ3 <- data.frame(svar3)
+manQ3 <- as.matrix(manQ3)
+manQ3
+coul <- brewer.pal(5, "Set2") 
+barplot((manQ3),beside=TRUE,
+        col = c("blue","red"),
+        space = 1,
+        ylim = c(0, 19),
+        main = "Frygt for kunstig intelligens svar på spørgsmål 3 Mænd",
+        ylab = "Antal deltagere",
+        xlab = "3.	Er du tryk ved at lade dig transportere i en førerløs bil kun styret af kunstig intelligens?",
+        names.arg = c(prct1y,prct1n),
+        legend = c("% tryg","% ikke tryg"), args.legend = list(x = "topright", ncol = 1))
 
 #################### Frygt for misbrug af data ALL ###############################
 
