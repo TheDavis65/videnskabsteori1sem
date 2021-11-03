@@ -842,6 +842,793 @@ barplot((allQ5),beside=TRUE,
 
 
 
+#################### Frygt for misbrug af data ALL enkeltvis ###############################
+replies <- read.csv("data/reply.csv")
+View(replies)
+
+
+## omdøber kolonner
+colnames(replies) <- c("svarID","svar_1","svar_2","svar_3","svar_4","svar_5","svar_6","svar_7","svar_8","withOrWithout","gender")
+View(replies)
+
+population <- dplyr::select(replies, svar_4, svar_5, svar_6, svar_7, svar_8)
+View(population)
+
+
+allQ4Y <- as.logical(population$svar_4 == "True") 
+allQ4Y <- sum(allQ4Y)
+allQ4Y
+
+allQ4N <- as.logical(population$svar_4 == "False") 
+allQ4N <- sum(allQ4N)
+allQ4N
+
+allQ5Y <- as.logical(population$svar_5 == "True") 
+allQ5Y <- sum(allQ5Y)
+allQ5Y
+
+allQ5N <- as.logical(population$svar_5 == "False") 
+allQ5N <- sum(allQ5N)
+allQ5N
+
+allQ6Y <- as.logical(population$svar_6 == "True") 
+allQ6Y <- sum(allQ6Y)
+allQ6Y
+allQ6N <- as.logical(population$svar_6 == "False") 
+allQ6N <- sum(allQ6N)
+allQ6N
+
+allQ7Y <- as.logical(population$svar_7 == "True") 
+allQ7Y <- sum(allQ7Y)
+allQ7Y
+
+allQ7N <- as.logical(population$svar_7 == "False") 
+allQ7N <- sum(allQ7N)
+allQ7N
+
+allQ8Y <- as.logical(population$svar_8 == "True") 
+allQ8Y <- sum(allQ8Y)
+allQ8Y
+
+allQ8N <- as.logical(population$svar_8 == "False") 
+allQ8N <- sum(allQ8N)
+allQ8N
+## laver dataframe og plot
+library(RColorBrewer)
+
+
+
+## svar 4
+prct1y <- as.double(allQ4Y / 40 * 100)
+prct1y
+prct1n <- as.double(allQ4N / 40 * 100)
+svar4 <- c(allQ4Y, allQ4N)
+allQ4 <- data.frame(svar4)
+allQ4 <- as.matrix(allQ4)
+coul <- brewer.pal(5, "Set2") 
+barplot((allQ4),beside=TRUE,
+        col = c("lightblue","#f59042"),
+        space = 1,
+        ylim = c(0, 40),
+        main = "Frygt for misbrug af vores data spørgsmål 4",
+        ylab = "Antal deltagere",
+        xlab = "4.	Er du ok med at internationale Tech-Giganter indsamler dine data og bruger dem kommercielt?",
+        names.arg = c(prct1y, prct1n),
+        legend = c("% Ja","% Nej"), args.legend = list(x = "topleft", ncol = 1))
+
+## svar 5
+prct1y <- as.double(allQ5Y / 40 * 100)
+prct1y
+prct1n <- as.double(allQ5N / 40 * 100)
+svar5 <- c(allQ5Y, allQ5N)
+allQ5 <- data.frame(svar5)
+allQ5 <- as.matrix(allQ5)
+coul <- brewer.pal(5, "Set2") 
+barplot((allQ5),beside=TRUE,
+        col = c("lightblue","#f59042"),
+        space = 1,
+        ylim = c(0, 40),
+        main = "Frygt for misbrug af vores data spørgsmål 5",
+        ylab = "Antal deltagere",
+        xlab = "5.	Er du ok med at nationale myndigheder kan indsamle dine data?",
+        names.arg = c(prct1y, prct1n),
+        legend = c("% Ja","% Nej"), args.legend = list(x = "topleft", ncol = 1))
+
+## svar 6
+prct1y <- as.double(allQ6Y / 40 * 100)
+prct1y
+prct1n <- as.double(allQ6N / 40 * 100)
+svar6 <- c(allQ6Y, allQ6N)
+allQ6 <- data.frame(svar6)
+allQ6 <- as.matrix(allQ6)
+coul <- brewer.pal(5, "Set2") 
+barplot((allQ6),beside=TRUE,
+        col = c("lightblue","#f59042"),
+        space = 1,
+        ylim = c(0, 40),
+        main = "Frygt for misbrug af vores data spørgsmål 6",
+        ylab = "Antal deltagere",
+        xlab = "6.	Er du ok med at nationale myndigheder kan købe data fra private aktører?",
+        names.arg = c(prct1y, prct1n),
+        legend = c("% Ja","% Nej"), args.legend = list(x = "topleft", ncol = 1))
+
+
+## svar 7
+prct1y <- as.double(allQ7Y / 40 * 100)
+prct1y
+prct1n <- as.double(allQ7N / 40 * 100)
+svar7 <- c(allQ7Y, allQ7N)
+allQ7 <- data.frame(svar7)
+allQ7 <- as.matrix(allQ7)
+coul <- brewer.pal(5, "Set2") 
+barplot((allQ7),beside=TRUE,
+        col = c("lightblue","#f59042"),
+        space = 1,
+        ylim = c(0, 40),
+        main = "Frygt for misbrug af vores data spørgsmål 7",
+        ylab = "Antal deltagere",
+        xlab = "7.	Er du ok med at private aktører køber og sælger dine data for profittens skyld?",
+        names.arg = c(prct1y, prct1n),
+        legend = c("% Ja","% Nej"), args.legend = list(x = "topleft", ncol = 1))
+
+## svar 8
+prct1y <- as.double(allQ8Y / 40 * 100)
+prct1y
+prct1n <- as.double(allQ8N / 40 * 100)
+svar8 <- c(allQ8Y, allQ8N)
+allQ8 <- data.frame(svar8)
+allQ8 <- as.matrix(allQ8)
+coul <- brewer.pal(5, "Set2") 
+barplot((allQ8),beside=TRUE,
+        col = c("lightblue","#f59042"),
+        space = 1,
+        ylim = c(0, 40),
+        main = "Frygt for misbrug af vores data spørgsmål 8",
+        ylab = "Antal deltagere",
+        xlab = "8.	frygter du at dine data vil indgå i en overvågnings kultur?",
+        names.arg = c(prct1y, prct1n),
+        legend = c("% Ja","% Nej"), args.legend = list(x = "topleft", ncol = 1))
+
+#################### Frygt for misbrug af data analyse for digitale indfødte  ###############################
+
+
+replies <- read.csv("data/reply.csv")
+View(replies)
+
+
+dinf <- filter(replies, replies$ReplyID & Reply_9 == "True") 
+dinf
+dinf <- sum(dinf)
+
+## omdøber kolonner
+colnames(dinf) <- c("svarID","svar_1","svar_2","svar_3","svar_4","svar_5","svar_6","svar_7","svar_8","withOrWithout","gender")
+View(dinf)
+
+dinf <- dplyr::select(dinf, svar_4, svar_5, svar_6, svar_7, svar_8)
+View(dinf)
+
+
+dinfQ4Y <- as.logical(dinf$svar_4 == "True") 
+dinfQ4Y <- sum(dinfQ4Y)
+dinfQ4Y
+
+
+dinfQ4N <- as.logical(dinf$svar_4 == "False") 
+dinfQ4N <- sum(dinfQ4N)
+dinfQ4N
+
+
+dinfQ5Y <- as.logical(dinf$svar_5 == "True") 
+dinfQ5Y <- sum(dinfQ5Y)
+dinfQ5Y 
+
+dinfQ5N <- as.logical(dinf$svar_5 == "False") 
+dinfQ5N <- sum(dinfQ5N)
+dinfQ5N
+
+dinfQ6Y <- as.logical(dinf$svar_6 == "True") 
+dinfQ6Y <- sum(dinfQ6Y)
+dinfQ6Y
+
+dinfQ6N <- as.logical(dinf$svar_6 == "False") 
+dinfQ6N <- sum(dinfQ6N)
+dinfQ6N
+
+dinfQ7Y <- as.logical(dinf$svar_7 == "True") 
+dinfQ7Y <- sum(dinfQ7Y)
+dinfQ7Y
+
+dinfQ7N <- as.logical(dinf$svar_7 == "False") 
+dinfQ7N <- sum(dinfQ7N)
+dinfQ7N
+
+dinfQ8Y <- as.logical(dinf$svar_8 == "True") 
+dinfQ8Y <- sum(dinfQ8Y)
+dinfQ8Y
+
+dinfQ8N <- as.logical(dinf$svar_8 == "False") 
+dinfQ8N <- sum(dinfQ8N)
+dinfQ8N
+
+## svar 4
+prct1y <- as.double(dinfQ4Y / 15 * 100)
+prct1y
+prct1n <- as.double(dinfQ4N / 15 * 100)
+svar4 <- c(dinfQ4Y, dinfQ4N)
+dinfQ4 <- data.frame(svar4)
+dinfQ4 <- as.matrix(dinfQ4)
+coul <- brewer.pal(5, "Set2") 
+barplot((dinfQ4),beside=TRUE,
+        col = c("#adf542","#f55142"),
+        space = 1,
+        ylim = c(0, 16),
+        main = "Frygt for misbrug af vores data spørgsmål 4 digitale indfødte ",
+        ylab = "Antal deltagere",
+        xlab = "4.	Er du ok med at internationale Tech-Giganter indsamler dine data og bruger dem kommercielt?",
+        names.arg = c(prct1y, prct1n),
+        legend = c("% Ja","% Nej"), args.legend = list(x = "topleft", ncol = 1))
+
+
+## svar 5
+a <- as.double(dinfQ5Y / 15 * 100)
+prct1y <- format(round(a, 2), nsmall = 2)
+prct1y
+b <- as.double(dinfQ5N / 15 * 100)
+prct1n <- format(round(b, 2), nsmall = 2)
+svar5 <- c(dinfQ5Y, dinfQ5N)
+dinfQ5 <- data.frame(svar5)
+dinfQ5 <- as.matrix(dinfQ5)
+coul <- brewer.pal(5, "Set2") 
+barplot((dinfQ5),beside=TRUE,
+        col = c("#adf542","#f55142"),
+        space = 1,
+        ylim = c(0, 16),
+        main = "Frygt for misbrug af vores data spørgsmål 5 digitale indfødte ",
+        ylab = "Antal deltagere",
+        xlab = "5.	Er du ok med at nationale myndigheder kan indsamle dine data?",
+        names.arg = c(prct1y, prct1n),
+        legend = c("% Ja","% Nej"), args.legend = list(x = "topleft", ncol = 1))
+
+## svar 6
+a <- as.double(dinfQ6Y / 15 * 100)
+prct1y <- format(round(a, 2), nsmall = 2)
+prct1y
+b <- as.double(dinfQ6N / 15 * 100)
+prct1n <- format(round(b, 2), nsmall = 2)
+svar6 <- c(dinfQ6Y, dinfQ6N)
+dinfQ6 <- data.frame(svar6)
+dinfQ6 <- as.matrix(dinfQ6)
+coul <- brewer.pal(5, "Set2") 
+barplot((dinfQ6),beside=TRUE,
+        col = c("#adf542","#f55142"),
+        space = 1,
+        ylim = c(0, 16),
+        main = "Frygt for misbrug af vores data spørgsmål 6 digitale indfødte ",
+        ylab = "Antal deltagere",
+        xlab = "6.	Er du ok med at nationale myndigheder kan købe data fra private aktører?",
+        names.arg = c(prct1y, prct1n),
+        legend = c("% Ja","% Nej"), args.legend = list(x = "topleft", ncol = 1))
+
+## svar 7
+a <- as.double(dinfQ7Y / 15 * 100)
+prct1y <- format(round(a, 2), nsmall = 2)
+prct1y
+b <- as.double(dinfQ7N / 15 * 100)
+prct1n <- format(round(b, 2), nsmall = 2)
+svar7 <- c(dinfQ7Y, dinfQ7N)
+dinfQ7 <- data.frame(svar7)
+dinfQ7 <- as.matrix(dinfQ7)
+coul <- brewer.pal(5, "Set2") 
+barplot((dinfQ7),beside=TRUE,
+        col = c("#adf542","#f55142"),
+        space = 1,
+        ylim = c(0, 16),
+        main = "Frygt for misbrug af vores data spørgsmål 7 digitale indfødte ",
+        ylab = "Antal deltagere",
+        xlab = "7.	Er du ok med at private aktører køber og sælger dine data for profittens skyld?",
+        names.arg = c(prct1y, prct1n),
+        legend = c("% Ja","% Nej"), args.legend = list(x = "topleft", ncol = 1))
+
+
+## svar 8
+a <- as.double(dinfQ8Y / 15 * 100)
+prct1y <- format(round(a, 2), nsmall = 2)
+prct1y
+b <- as.double(dinfQ8N / 15 * 100)
+prct1n <- format(round(b, 2), nsmall = 2)
+svar8 <- c(dinfQ8Y, dinfQ8N)
+dinfQ8 <- data.frame(svar8)
+dinfQ8 <- as.matrix(dinfQ8)
+coul <- brewer.pal(5, "Set2") 
+barplot((dinfQ8),beside=TRUE,
+        col = c("#adf542","#f55142"),
+        space = 1,
+        ylim = c(0, 16),
+        main = "Frygt for misbrug af vores data spørgsmål 8 digitale indfødte ",
+        ylab = "Antal deltagere",
+        xlab = "8.	frygter du at dine data vil indgå i en overvågnings kultur?",
+        names.arg = c(prct1y, prct1n),
+        legend = c("% Ja","% Nej"), args.legend = list(x = "topleft", ncol = 1))
+
+#################### Frygt for misbrug af data analyse for digitale indvandrere   ###############################
+
+
+replies <- read.csv("data/reply.csv")
+View(replies)
+
+
+dinv <- filter(replies, replies$ReplyID & Reply_9 == "False") 
+dinv
+dinv <- sum(dinv)
+## omdøber kolonner
+colnames(dinv) <- c("svarID","svar_1","svar_2","svar_3","svar_4","svar_5","svar_6","svar_7","svar_8","withOrWithout","gender")
+View(dinv)
+
+dinv <- dplyr::select(dinv, svar_4, svar_5, svar_6, svar_7, svar_8)
+View(dinv)
+
+
+dinvQ4Y <- as.logical(dinv$svar_4 == "True") 
+dinvQ4Y <- sum(dinvQ4Y)
+dinvQ4Y
+
+
+dinvQ4N <- as.logical(dinv$svar_4 == "False") 
+dinvQ4N <- sum(dinvQ4N)
+dinvQ4N
+
+
+dinvQ5Y <- as.logical(dinv$svar_5 == "True") 
+dinvQ5Y <- sum(dinvQ5Y)
+dinvQ5Y 
+
+dinvQ5N <- as.logical(dinv$svar_5 == "False") 
+dinvQ5N <- sum(dinvQ5N)
+dinvQ5N
+
+dinvQ6Y <- as.logical(dinv$svar_6 == "True") 
+dinvQ6Y <- sum(dinvQ6Y)
+dinvQ6Y
+
+dinvQ6N <- as.logical(dinv$svar_6 == "False") 
+dinvQ6N <- sum(dinvQ6N)
+dinvQ6N
+
+dinvQ7Y <- as.logical(dinv$svar_7 == "True") 
+dinvQ7Y <- sum(dinvQ7Y)
+dinvQ7Y 
+
+dinvQ7N <- as.logical(dinv$svar_7 == "False") 
+dinvQ7N <- sum(dinvQ7N)
+dinvQ7N
+
+dinvQ8Y <- as.logical(dinv$svar_8 == "True") 
+dinvQ8Y <- sum(dinvQ8Y)
+dinvQ8Y
+
+dinvQ8N <- as.logical(dinv$svar_8 == "False") 
+dinvQ8N <- sum(dinvQ8N)
+dinvQ8N
+
+
+## svar 4
+a <- as.double(dinvQ4Y / 25 * 100)
+prct1y <- format(round(a, 2), nsmall = 2)
+prct1y
+b <- as.double(dinvQ4N / 25 * 100)
+prct1n <- format(round(b, 2), nsmall = 2)
+svar4 <- c(dinvQ4Y, dinvQ4N)
+dinvQ4 <- data.frame(svar4)
+dinvQ4 <- as.matrix(dinvQ4)
+coul <- brewer.pal(5, "Set2") 
+barplot((dinvQ4),beside=TRUE,
+        col = c("#4296f5","#f5ec42"),
+        space = 1,
+        ylim = c(0, 26),
+        main = "Frygt for misbrug af vores data spørgsmål 4 digitale indvandrere ",
+        ylab = "Antal deltagere",
+        xlab = "4.	Er du ok med at internationale Tech-Giganter indsamler dine data og bruger dem kommercielt?",
+        names.arg = c(prct1y, prct1n),
+        legend = c("% Ja","% Nej"), args.legend = list(x = "topleft", ncol = 1))
+
+## svar 5
+a <- as.double(dinvQ5Y / 25 * 100)
+prct1y <- format(round(a, 2), nsmall = 2)
+prct1y
+b <- as.double(dinvQ5N / 25 * 100)
+prct1n <- format(round(b, 2), nsmall = 2)
+svar5 <- c(dinvQ5Y, dinvQ5N)
+dinvQ5 <- data.frame(svar5)
+dinvQ5 <- as.matrix(dinvQ5)
+coul <- brewer.pal(5, "Set2") 
+barplot((dinvQ5),beside=TRUE,
+        col = c("#4296f5","#f5ec42"),
+        space = 1,
+        ylim = c(0, 26),
+        main = "Frygt for misbrug af vores data spørgsmål 5 digitale indvandrere ",
+        ylab = "Antal deltagere",
+        xlab = "5.	Er du ok med at nationale myndigheder kan indsamle dine data?",
+        names.arg = c(prct1y, prct1n),
+        legend = c("% Ja","% Nej"), args.legend = list(x = "topleft", ncol = 1))
+
+## svar 6
+a <- as.double(dinvQ6Y / 25 * 100)
+prct1y <- format(round(a, 2), nsmall = 2)
+prct1y
+b <- as.double(dinvQ6N / 25 * 100)
+prct1n <- format(round(b, 2), nsmall = 2)
+svar6 <- c(dinvQ6Y, dinvQ6N)
+dinvQ6 <- data.frame(svar6)
+dinvQ6 <- as.matrix(dinvQ6)
+coul <- brewer.pal(5, "Set2") 
+barplot((dinvQ6),beside=TRUE,
+        col = c("#4296f5","#f5ec42"),
+        space = 1,
+        ylim = c(0, 26),
+        main = "Frygt for misbrug af vores data spørgsmål 6 digitale indvandrere ",
+        ylab = "Antal deltagere",
+        xlab = "6.	Er du ok med at nationale myndigheder kan købe data fra private aktører?",
+        names.arg = c(prct1y, prct1n),
+        legend = c("% Ja","% Nej"), args.legend = list(x = "topleft", ncol = 1))
+
+## svar 7
+a <- as.double(dinvQ7Y / 25 * 100)
+prct1y <- format(round(a, 2), nsmall = 2)
+prct1y
+b <- as.double(dinvQ7N / 25 * 100)
+prct1n <- format(round(b, 2), nsmall = 2)
+svar7 <- c(dinvQ7Y, dinvQ7N)
+dinvQ7 <- data.frame(svar7)
+dinvQ7 <- as.matrix(dinvQ7)
+coul <- brewer.pal(5, "Set2") 
+barplot((dinvQ7),beside=TRUE,
+        col = c("#4296f5","#f5ec42"),
+        space = 1,
+        ylim = c(0, 26),
+        main = "Frygt for misbrug af vores data spørgsmål 7 digitale indvandrere ",
+        ylab = "Antal deltagere",
+        xlab = "7.	Er du ok med at private aktører køber og sælger dine data for profittens skyld?",
+        names.arg = c(prct1y, prct1n),
+        legend = c("% Ja","% Nej"), args.legend = list(x = "topleft", ncol = 1))
+
+## svar 8
+a <- as.double(dinvQ8Y / 25 * 100)
+prct1y <- format(round(a, 2), nsmall = 2)
+prct1y
+b <- as.double(dinvQ8N / 25 * 100)
+prct1n <- format(round(b, 2), nsmall = 2)
+svar8 <- c(dinvQ8Y, dinvQ8N)
+dinvQ8 <- data.frame(svar8)
+dinvQ8 <- as.matrix(dinvQ8)
+coul <- brewer.pal(5, "Set2") 
+barplot((dinvQ8),beside=TRUE,
+        col = c("#4296f5","#f5ec42"),
+        space = 1,
+        ylim = c(0, 26),
+        main = "Frygt for misbrug af vores data spørgsmål 8 digitale indvandrere ",
+        ylab = "Antal deltagere",
+        xlab = "8.	frygter du at dine data vil indgå i en overvågnings kultur?",
+        names.arg = c(prct1y, prct1n),
+        legend = c("% Ja","% Nej"), args.legend = list(x = "topleft", ncol = 1))
+
+#################### Frygt for misbrug af data analyse for kvinder   ###############################
+
+replies <- read.csv("data/reply.csv")
+View(replies)
+
+
+woman <- filter(replies, replies$ReplyID & Reply_10 == "True") 
+woman
+woman <- sum(woman)
+## omdøber kolonner
+colnames(woman) <- c("svarID","svar_1","svar_2","svar_3","svar_4","svar_5","svar_6","svar_7","svar_8","withOrWithout","gender")
+View(woman)
+
+woman <- dplyr::select(woman, svar_4, svar_5, svar_6, svar_7, svar_8)
+View(woman)
+
+
+womanQ4Y <- as.logical(woman$svar_4 == "True") 
+womanQ4Y <- sum(womanQ4Y)
+womanQ4Y
+
+
+womanQ4N <- as.logical(woman$svar_4 == "False") 
+womanQ4N <- sum(womanQ4N)
+womanQ4N
+
+
+womanQ5Y <- as.logical(woman$svar_5 == "True") 
+womanQ5Y <- sum(womanQ5Y)
+womanQ5Y 
+
+womanQ5N <- as.logical(woman$svar_5 == "False") 
+womanQ5N <- sum(womanQ5N)
+womanQ5N
+
+womanQ6Y <- as.logical(woman$svar_6 == "True") 
+womanQ6Y <- sum(womanQ6Y)
+womanQ6Y
+
+womanQ6N <- as.logical(woman$svar_6 == "False") 
+womanQ6N <- sum(womanQ6N)
+womanQ6N
+
+womanQ7Y <- as.logical(woman$svar_7 == "True") 
+womanQ7Y <- sum(womanQ7Y)
+womanQ7Y 
+
+womanQ7N <- as.logical(woman$svar_7 == "False") 
+womanQ7N <- sum(womanQ7N)
+womanQ7N
+
+womanQ8Y <- as.logical(woman$svar_8 == "True") 
+womanQ8Y <- sum(womanQ8Y)
+womanQ8Y
+
+womanQ8N <- as.logical(woman$svar_8 == "False") 
+womanQ8N <- sum(womanQ8N)
+womanQ8N
+
+## svar 4
+a <- as.double(womanQ4Y / 22 * 100)
+prct1y <- format(round(a, 2), nsmall = 2)
+prct1y
+b <- as.double(womanQ4N / 22 * 100)
+prct1n <- format(round(b, 2), nsmall = 2)
+svar4 <- c(womanQ4Y, womanQ4N)
+womanQ4 <- data.frame(svar4)
+womanQ4 <- as.matrix(womanQ4)
+coul <- brewer.pal(5, "Set2") 
+barplot((womanQ4),beside=TRUE,
+        col = c("#42f599","#7836eb"),
+        space = 1,
+        ylim = c(0, 23),
+        main = "Frygt for misbrug af vores data spørgsmål 4 Kvinder ",
+        ylab = "Antal deltagere",
+        xlab = "4.	Er du ok med at internationale Tech-Giganter indsamler dine data og bruger dem kommercielt?",
+        names.arg = c(prct1y, prct1n),
+        legend = c("% Ja","% Nej"), args.legend = list(x = "topleft", ncol = 1))
+
+## svar 5
+a <- as.double(womanQ5Y / 22 * 100)
+prct1y <- format(round(a, 2), nsmall = 2)
+prct1y
+b <- as.double(womanQ5N / 22 * 100)
+prct1n <- format(round(b, 2), nsmall = 2)
+svar5 <- c(womanQ5Y, womanQ5N)
+womanQ5 <- data.frame(svar5)
+womanQ5 <- as.matrix(womanQ5)
+coul <- brewer.pal(5, "Set2") 
+barplot((womanQ5),beside=TRUE,
+        col = c("#42f599","#7836eb"),
+        space = 1,
+        ylim = c(0, 23),
+        main = "Frygt for misbrug af vores data spørgsmål 5 Kvinder ",
+        ylab = "Antal deltagere",
+        xlab = "5.	Er du ok med at nationale myndigheder kan indsamle dine data?",
+        names.arg = c(prct1y, prct1n),
+        legend = c("% Ja","% Nej"), args.legend = list(x = "topleft", ncol = 1))
+
+## svar 6
+a <- as.double(womanQ6Y / 22 * 100)
+prct1y <- format(round(a, 2), nsmall = 2)
+prct1y
+b <- as.double(womanQ6N / 22 * 100)
+prct1n <- format(round(b, 2), nsmall = 2)
+svar6 <- c(womanQ6Y, womanQ6N)
+womanQ6 <- data.frame(svar6)
+womanQ6 <- as.matrix(womanQ6)
+coul <- brewer.pal(5, "Set2") 
+barplot((womanQ6),beside=TRUE,
+        col = c("#42f599","#7836eb"),
+        space = 1,
+        ylim = c(0, 23),
+        main = "Frygt for misbrug af vores data spørgsmål 6 Kvinder ",
+        ylab = "Antal deltagere",
+        xlab = "6.	Er du ok med at nationale myndigheder kan købe data fra private aktører?",
+        names.arg = c(prct1y, prct1n),
+        legend = c("% Ja","% Nej"), args.legend = list(x = "topleft", ncol = 1))
+
+## svar 7
+a <- as.double(womanQ7Y / 22 * 100)
+prct1y <- format(round(a, 2), nsmall = 2)
+prct1y
+b <- as.double(womanQ7N / 22 * 100)
+prct1n <- format(round(b, 2), nsmall = 2)
+svar7 <- c(womanQ7Y, womanQ7N)
+womanQ7 <- data.frame(svar7)
+womanQ7 <- as.matrix(womanQ7)
+coul <- brewer.pal(5, "Set2") 
+barplot((womanQ7),beside=TRUE,
+        col = c("#42f599","#7836eb"),
+        space = 1,
+        ylim = c(0, 23),
+        main = "Frygt for misbrug af vores data spørgsmål 7 Kvinder ",
+        ylab = "Antal deltagere",
+        xlab = "7.	Er du ok med at private aktører køber og sælger dine data for profittens skyld?",
+        names.arg = c(prct1y, prct1n),
+        legend = c("% Ja","% Nej"), args.legend = list(x = "topleft", ncol = 1))
+
+## svar 8
+a <- as.double(womanQ8Y / 22 * 100)
+prct1y <- format(round(a, 2), nsmall = 2)
+prct1y
+b <- as.double(womanQ8N / 22 * 100)
+prct1n <- format(round(b, 2), nsmall = 2)
+svar8  <- c(womanQ8Y, womanQ8N)
+womanQ8 <- data.frame(svar8)
+womanQ8 <- as.matrix(womanQ8)
+coul <- brewer.pal(5, "Set2") 
+barplot((womanQ8),beside=TRUE,
+        col = c("#42f599","#7836eb"),
+        space = 1,
+        ylim = c(0, 23),
+        main = "Frygt for misbrug af vores data spørgsmål 8 Kvinder ",
+        ylab = "Antal deltagere",
+        xlab = "8.	frygter du at dine data vil indgå i en overvågnings kultur? ",
+        names.arg = c(prct1y, prct1n),
+        legend = c("% Ja","% Nej"), args.legend = list(x = "topleft", ncol = 1))
+
+#################### Frygt for misbrug af data analyse for Mænd   ###############################
+replies <- read.csv("data/reply.csv")
+View(replies)
+
+
+man <- filter(replies, replies$ReplyID & Reply_10 == "False") 
+man
+man <- sum(man)
+## omdøber kolonner
+colnames(man) <- c("svarID","svar_1","svar_2","svar_3","svar_4","svar_5","svar_6","svar_7","svar_8","withOrWithout","gender")
+View(man)
+
+man <- dplyr::select(man, svar_4, svar_5, svar_6, svar_7, svar_8)
+View(man)
+
+
+manQ4Y <- as.logical(man$svar_4 == "True") 
+manQ4Y <- sum(manQ4Y)
+manQ4Y
+
+
+manQ4N <- as.logical(man$svar_4 == "False") 
+manQ4N <- sum(manQ4N)
+manQ4N
+
+
+manQ5Y <- as.logical(man$svar_5 == "True") 
+manQ5Y <- sum(manQ5Y)
+manQ5Y 
+
+manQ5N <- as.logical(man$svar_5 == "False") 
+manQ5N <- sum(manQ5N)
+manQ5N
+
+manQ6Y <- as.logical(man$svar_6 == "True") 
+manQ6Y <- sum(manQ6Y)
+manQ6Y
+
+manQ6N <- as.logical(man$svar_6 == "False") 
+manQ6N <- sum(manQ6N)
+manQ6N
+
+manQ7Y <- as.logical(man$svar_7 == "True") 
+manQ7Y <- sum(manQ7Y)
+manQ7Y 
+
+manQ7N <- as.logical(man$svar_7 == "False") 
+manQ7N <- sum(manQ7N)
+manQ7N
+
+manQ8Y <- as.logical(man$svar_8 == "True") 
+manQ8Y <- sum(manQ8Y)
+manQ8Y
+
+manQ8N <- as.logical(man$svar_8 == "False") 
+manQ8N <- sum(manQ8N)
+manQ8N
+
+## svar 4
+a <- as.double(manQ4Y / 18 * 100)
+prct1y <- format(round(a, 2), nsmall = 2)
+prct1y
+b <- as.double(manQ4N / 18 * 100)
+prct1n <- format(round(b, 2), nsmall = 2)
+svar4  <- c(manQ4Y, manQ4N)
+manQ4 <- data.frame(svar4)
+manQ4 <- as.matrix(manQ4)
+coul <- brewer.pal(5, "Set2") 
+barplot((manQ4),beside=TRUE,
+        col = c("blue","red"),
+        space = 1,
+        ylim = c(0, 19),
+        main = "Frygt for misbrug af vores data spørgsmål 4 Mænd ",
+        ylab = "Antal deltagere",
+        xlab = "4.	Er du ok med at internationale Tech-Giganter indsamler dine data og bruger dem kommercielt? ",
+        names.arg = c(prct1y, prct1n),
+        legend = c("% Ja","% Nej"), args.legend = list(x = "topleft", ncol = 1))
+
+## svar 5
+a <- as.double(manQ5Y / 18 * 100)
+prct1y <- format(round(a, 2), nsmall = 2)
+prct1y
+b <- as.double(manQ5N / 18 * 100)
+prct1n <- format(round(b, 2), nsmall = 2)
+svar5  <- c(manQ5Y, manQ5N)
+manQ5 <- data.frame(svar5)
+manQ5 <- as.matrix(manQ5)
+coul <- brewer.pal(5, "Set2") 
+barplot((manQ5),beside=TRUE,
+        col = c("blue","red"),
+        space = 1,
+        ylim = c(0, 19),
+        main = "Frygt for misbrug af vores data spørgsmål 5 Mænd ",
+        ylab = "Antal deltagere",
+        xlab = "5.	Er du ok med at nationale myndigheder kan indsamle dine data?",
+        names.arg = c(prct1y, prct1n),
+        legend = c("% Ja","% Nej"), args.legend = list(x = "topleft", ncol = 1))
+
+## svar 6
+a <- as.double(manQ6Y / 18 * 100)
+prct1y <- format(round(a, 2), nsmall = 2)
+prct1y
+b <- as.double(manQ6N / 18 * 100)
+prct1n <- format(round(b, 2), nsmall = 2)
+svar6  <- c(manQ6Y, manQ6N)
+manQ6 <- data.frame(svar6)
+manQ6 <- as.matrix(manQ6)
+coul <- brewer.pal(5, "Set2") 
+barplot((manQ6),beside=TRUE,
+        col = c("blue","red"),
+        space = 1,
+        ylim = c(0, 19),
+        main = "Frygt for misbrug af vores data spørgsmål 6 Mænd ",
+        ylab = "Antal deltagere",
+        xlab = "6.	Er du ok med at nationale myndigheder kan købe data fra private aktører?",
+        names.arg = c(prct1y, prct1n),
+        legend = c("% Ja","% Nej"), args.legend = list(x = "topleft", ncol = 1))
+
+## svar 7
+a <- as.double(manQ7Y / 18 * 100)
+prct1y <- format(round(a, 2), nsmall = 2)
+prct1y
+b <- as.double(manQ7N / 18 * 100)
+prct1n <- format(round(b, 2), nsmall = 2)
+svar7  <- c(manQ7Y, manQ7N)
+manQ7 <- data.frame(svar7)
+manQ7 <- as.matrix(manQ7)
+coul <- brewer.pal(5, "Set2") 
+barplot((manQ7),beside=TRUE,
+        col = c("blue","red"),
+        space = 1,
+        ylim = c(0, 19),
+        main = "Frygt for misbrug af vores data spørgsmål 7 Mænd ",
+        ylab = "Antal deltagere",
+        xlab = "7.	Er du ok med at private aktører køber og sælger dine data for profittens skyld?",
+        names.arg = c(prct1y, prct1n),
+        legend = c("% Ja","% Nej"), args.legend = list(x = "topleft", ncol = 1))
+
+## svar 8
+a <- as.double(manQ8Y / 18 * 100)
+prct1y <- format(round(a, 2), nsmall = 2)
+prct1y
+b <- as.double(manQ8N / 18 * 100)
+prct1n <- format(round(b, 2), nsmall = 2)
+svar8  <- c(manQ8Y, manQ8N)
+manQ8 <- data.frame(svar8)
+manQ8 <- as.matrix(manQ8)
+coul <- brewer.pal(5, "Set2") 
+barplot((manQ8),beside=TRUE,
+        col = c("blue","red"),
+        space = 1,
+        ylim = c(0, 19),
+        main = "Frygt for misbrug af vores data spørgsmål 8 Mænd ",
+        ylab = "Antal deltagere",
+        xlab = "8.	frygter du at dine data vil indgå i en overvågnings kultur?",
+        names.arg = c(prct1y, prct1n),
+        legend = c("% Ja","% Nej"), args.legend = list(x = "topleft", ncol = 1))
+
+
 # CLEAN UP #################################################
 
 # Clear environment
