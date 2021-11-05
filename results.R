@@ -148,8 +148,7 @@ genders <- data.frame(
   allQ3N <- as.logical(population$svar_3 == "False") 
   allQ3N <- sum(allQ3N)
 
-  
-  
+
   ## laver dataframe og plot
   library(RColorBrewer)
     
@@ -225,6 +224,30 @@ barplot((allQ3),beside=TRUE,
         xlab = "3.	Er du tryk ved at lade dig transportere i en førerløs bil kun styret af kunstig intelligens?",
         names.arg = c(prct3y, prct3n),
         legend = c("% tryg","% ikke tryg"), args.legend = list(x = "topright", ncol = 1))
+
+
+### samled svar. svar_1 + svar_2 + svar_3 i prct  spørgsmål allQ2Y og allQ2N er byttet om for at af spejle det skeptiske
+hellnowAll <- allQ1N + allQ2Y + allQ3N
+hellyesAll <- allQ1Y + allQ2N + allQ3Y
+hellnowAll <- hellnowAll / 120 * 100
+hellyesAll <- hellyesAll  / 120 * 100
+prct3y <- format(round(hellyesAll, 2), nsmall = 2)
+prct3y
+prct3n <- format(round(hellnowAll, 2), nsmall = 2)
+svarCompl <- c(hellyesAll, hellnowAll)
+allQCompl <- data.frame(svarCompl)
+allQCompl <- as.matrix(allQCompl)
+coul <- brewer.pal(5, "Set2") 
+barplot((allQCompl),beside=TRUE,
+        col = c("lightblue","#f59042"),
+        space = 1,
+        ylim = c(0, 100),
+        main = "Frygt for kunstig intelligens - set for hele gruppen",
+        ylab = "Antal deltagere i %",
+        xlab = "baseret på de første 3 spørgsmål",
+        names.arg = c(prct3y, prct3n),
+        legend = c("% tryg","% ikke tryg"), args.legend = list(x = "topright", ncol = 1))
+
 #################### kunstig intelligens analyse for digitale indfødte  ###############################
 
 
@@ -359,6 +382,29 @@ barplot((dinfQ3),beside=TRUE,
         legend = c("% tryg", "% ikke tryg"), args.legend = list(x = "topright", ncol = 1))
 
 
+### samled svar. svar_1 + svar_2 + svar_3 i prct  spørgsmål allQ2Y og allQ2N er byttet om for at af spejle det skeptiske digitale indfødte
+hellnowAll <- dinfQ1N + dinfQ2Y + dinfQ3N
+hellyesAll <- dinfQ1Y + dinfQ2N + dinfQ3Y
+hellnowAll <- hellnowAll / 45 * 100
+hellyesAll <- hellyesAll  / 45 * 100
+prct3y <- format(round(hellyesAll, 2), nsmall = 2)
+prct3y
+prct3n <- format(round(hellnowAll, 2), nsmall = 2)
+svarCompl <- c(hellyesAll, hellnowAll)
+allQCompl <- data.frame(svarCompl)
+allQCompl <- as.matrix(allQCompl)
+coul <- brewer.pal(5, "Set2") 
+barplot((allQCompl),beside=TRUE,
+        col = c("#adf542","#f55142"),
+        space = 1,
+        ylim = c(0, 100),
+        main = "Frygt for kunstig intelligens - set for hele gruppen af digitale indfødte",
+        ylab = "Antal deltagere i %",
+        xlab = "baseret på de første 3 spørgsmål",
+        names.arg = c(prct3y, prct3n),
+        legend = c("% tryg","% ikke tryg"), args.legend = list(x = "topright", ncol = 1))
+
+
 #################### kunstig intelligens analyse for digitale indvandrere  ###############################
 
 replies <- read.csv("data/reply.csv")
@@ -484,6 +530,28 @@ barplot((dinvQ3),beside=TRUE,
         ylab = "Antal deltagere",
         xlab = "3.	Er du tryk ved at lade dig transportere i en førerløs bil kun styret af kunstig intelligens? ",
         names.arg = c(prct1y, prct1n),
+        legend = c("% tryg","% ikke tryg"), args.legend = list(x = "topright", ncol = 1))
+
+### samled svar. svar_1 + svar_2 + svar_3 i prct  spørgsmål allQ2Y og allQ2N er byttet om for at af spejle det skeptiske digitale indvandrere 
+hellnowAll <- dinvQ1N + dinvQ2Y + dinvQ3N
+hellyesAll <- dinvQ1Y + dinvQ2N + dinvQ3Y
+hellnowAll <- hellnowAll / 75 * 100
+hellyesAll <- hellyesAll  / 75 * 100
+prct3y <- format(round(hellyesAll, 2), nsmall = 2)
+prct3y
+prct3n <- format(round(hellnowAll, 2), nsmall = 2)
+svarCompl <- c(hellyesAll, hellnowAll)
+allQCompl <- data.frame(svarCompl)
+allQCompl <- as.matrix(allQCompl)
+coul <- brewer.pal(5, "Set2") 
+barplot((allQCompl),beside=TRUE,
+        col = c("#4296f5","#f5ec42"),
+        space = 1,
+        ylim = c(0, 100),
+        main = "Frygt for kunstig intelligens - set for hele gruppen af Digitale Indvandrere",
+        ylab = "Antal deltagere i %",
+        xlab = "baseret på de første 3 spørgsmål",
+        names.arg = c(prct3y, prct3n),
         legend = c("% tryg","% ikke tryg"), args.legend = list(x = "topright", ncol = 1))
 
 #################### kunstig intelligens analyse for kvinder  ###############################
@@ -612,6 +680,28 @@ barplot((womanQ3),beside=TRUE,
         names.arg = c(prct1y,prct1n),
         legend = c("% tryg","% ikke tryg"), args.legend = list(x = "topright", ncol = 1))
 
+### samled svar. svar_1 + svar_2 + svar_3 i prct  spørgsmål allQ2Y og allQ2N er byttet om for at af spejle det skeptiske kvinder 
+hellnowAll <- womanQ1N + womanQ2Y + womanQ3N
+hellyesAll <- womanQ1Y + womanQ2N + womanQ3Y
+hellnowAll <- hellnowAll / 66 * 100
+hellyesAll <- hellyesAll  / 66 * 100
+prct3y <- format(round(hellyesAll, 2), nsmall = 2)
+prct3y
+prct3n <- format(round(hellnowAll, 2), nsmall = 2)
+svarCompl <- c(hellyesAll, hellnowAll)
+allQCompl <- data.frame(svarCompl)
+allQCompl <- as.matrix(allQCompl)
+coul <- brewer.pal(5, "Set2") 
+barplot((allQCompl),beside=TRUE,
+        col = c("#42f599","#7836eb"),
+        space = 1,
+        ylim = c(0, 100),
+        main = "Frygt for kunstig intelligens - set for hele gruppen af Kvinder",
+        ylab = "Antal deltagere i %",
+        xlab = "baseret på de første 3 spørgsmål",
+        names.arg = c(prct3y, prct3n),
+        legend = c("% tryg","% ikke tryg"), args.legend = list(x = "topright", ncol = 1))
+
 
 #################### kunstig intelligens analyse for Mænd  ###############################
 
@@ -738,6 +828,28 @@ barplot((manQ3),beside=TRUE,
         ylab = "Antal deltagere",
         xlab = "3.	Er du tryk ved at lade dig transportere i en førerløs bil kun styret af kunstig intelligens?",
         names.arg = c(prct1y,prct1n),
+        legend = c("% tryg","% ikke tryg"), args.legend = list(x = "topright", ncol = 1))
+
+### samled svar. svar_1 + svar_2 + svar_3 i prct  spørgsmål allQ2Y og allQ2N er byttet om for at af spejle det skeptiske kvinder 
+hellnowAll <- manQ1N + manQ2Y + manQ3N
+hellyesAll <- manQ1Y + manQ2N + manQ3Y
+hellnowAll <- hellnowAll / 54 * 100
+hellyesAll <- hellyesAll  / 54 * 100
+prct3y <- format(round(hellyesAll, 2), nsmall = 2)
+prct3y
+prct3n <- format(round(hellnowAll, 2), nsmall = 2)
+svarCompl <- c(hellyesAll, hellnowAll)
+allQCompl <- data.frame(svarCompl)
+allQCompl <- as.matrix(allQCompl)
+coul <- brewer.pal(5, "Set2") 
+barplot((allQCompl),beside=TRUE,
+        col = c("blue","red"),
+        space = 1,
+        ylim = c(0, 100),
+        main = "Frygt for kunstig intelligens - set for hele gruppen af Mænd",
+        ylab = "Antal deltagere i %",
+        xlab = "baseret på de første 3 spørgsmål",
+        names.arg = c(prct3y, prct3n),
         legend = c("% tryg","% ikke tryg"), args.legend = list(x = "topright", ncol = 1))
 
 #################### Frygt for misbrug af data ALL ###############################
@@ -874,6 +986,7 @@ allQ5N
 allQ6Y <- as.logical(population$svar_6 == "True") 
 allQ6Y <- sum(allQ6Y)
 allQ6Y
+
 allQ6N <- as.logical(population$svar_6 == "False") 
 allQ6N <- sum(allQ6N)
 allQ6N
@@ -989,6 +1102,30 @@ barplot((allQ8),beside=TRUE,
         names.arg = c(prct1y, prct1n),
         legend = c("% Ja","% Nej"), args.legend = list(x = "topleft", ncol = 1))
 
+### samled svar. svar_4 + svar_5 + svar_6 + svar_7 + svar_8 i prct
+##spørgsmål allQ8Y og allQ8N er byttet om for at afspejle det skeptiske 
+#Frygt for misbrug af vores data - set for hele gruppen 
+hellnowAll <- allQ4N + allQ5N + allQ6N + allQ7N + allQ8Y
+hellyesAll <- allQ4Y + allQ5Y + allQ6Y + allQ7Y + allQ8N
+hellnowAll <- hellnowAll / 200 * 100
+hellyesAll <- hellyesAll  / 200 * 100
+prct3y <- format(round(hellyesAll, 2), nsmall = 2)
+prct3y
+prct3n <- format(round(hellnowAll, 2), nsmall = 2)
+svarCompl <- c(hellyesAll, hellnowAll)
+allQCompl <- data.frame(svarCompl)
+allQCompl <- as.matrix(allQCompl)
+coul <- brewer.pal(5, "Set2") 
+barplot((allQCompl),beside=TRUE,
+        col = c("lightblue","#f59042"),
+        space = 1,
+        ylim = c(0, 100),
+        main = "Frygt for misbrug af vores data - set for hele gruppen",
+        ylab = "Antal deltagere i %",
+        xlab = "baseret på de sidste 5 spørgsmål",
+        names.arg = c(prct3y, prct3n),
+        legend = c("% tryg","% ikke tryg"), args.legend = list(x = "topright", ncol = 1))
+
 #################### Frygt for misbrug af data analyse for digitale indfødte  ###############################
 
 
@@ -1049,7 +1186,7 @@ dinfQ8Y
 dinfQ8N <- as.logical(dinf$svar_8 == "False") 
 dinfQ8N <- sum(dinfQ8N)
 dinfQ8N
-
+library(RColorBrewer)
 ## svar 4
 prct1y <- as.double(dinfQ4Y / 15 * 100)
 prct1y
@@ -1149,6 +1286,30 @@ barplot((dinfQ8),beside=TRUE,
         xlab = "8.	frygter du at dine data vil indgå i en overvågnings kultur?",
         names.arg = c(prct1y, prct1n),
         legend = c("% Ja","% Nej"), args.legend = list(x = "topleft", ncol = 1))
+
+### samled svar. svar_4 + svar_5 + svar_6 + svar_7 + svar_8 i prct
+##spørgsmål allQ8Y og allQ8N er byttet om for at afspejle det skeptiske 
+#Frygt for misbrug af vores data - digitale indfødte
+hellnowAll <- dinfQ4N + dinfQ5N + dinfQ6N + dinfQ7N + dinfQ8Y
+hellyesAll <- dinfQ4Y + dinfQ5Y + dinfQ6Y + dinfQ7Y + dinfQ8N
+hellnowAll <- hellnowAll / 75 * 100
+hellyesAll <- hellyesAll  / 75 * 100
+prct3y <- format(round(hellyesAll, 2), nsmall = 2)
+prct3y
+prct3n <- format(round(hellnowAll, 2), nsmall = 2)
+svarCompl <- c(hellyesAll, hellnowAll)
+allQCompl <- data.frame(svarCompl)
+allQCompl <- as.matrix(allQCompl)
+coul <- brewer.pal(5, "Set2") 
+barplot((allQCompl),beside=TRUE,
+        col = c("#adf542","#f55142"),
+        space = 1,
+        ylim = c(0, 100),
+        main = "Frygt for misbrug af vores data - set for digitale indfødte",
+        ylab = "Antal deltagere i %",
+        xlab = "baseret på de sidste 5 spørgsmål",
+        names.arg = c(prct3y, prct3n),
+        legend = c("% tryg","% ikke tryg"), args.legend = list(x = "topright", ncol = 1))
 
 #################### Frygt for misbrug af data analyse for digitale indvandrere   ###############################
 
@@ -1310,6 +1471,29 @@ barplot((dinvQ8),beside=TRUE,
         xlab = "8.	frygter du at dine data vil indgå i en overvågnings kultur?",
         names.arg = c(prct1y, prct1n),
         legend = c("% Ja","% Nej"), args.legend = list(x = "topleft", ncol = 1))
+### samled svar. svar_4 + svar_5 + svar_6 + svar_7 + svar_8 i prct
+##spørgsmål allQ8Y og allQ8N er byttet om for at afspejle det skeptiske 
+#Frygt for misbrug af vores data -digitale indvandrere 
+hellnowAll <- dinvQ4N + dinvQ5N + dinvQ6N + dinvQ7N + dinvQ8Y
+hellyesAll <- dinvQ4Y + dinvQ5Y + dinvQ6Y + dinvQ7Y + dinvQ8N
+hellnowAll <- hellnowAll / 125 * 100
+hellyesAll <- hellyesAll  / 125 * 100
+prct3y <- format(round(hellyesAll, 2), nsmall = 2)
+prct3y
+prct3n <- format(round(hellnowAll, 2), nsmall = 2)
+svarCompl <- c(hellyesAll, hellnowAll)
+allQCompl <- data.frame(svarCompl)
+allQCompl <- as.matrix(allQCompl)
+coul <- brewer.pal(5, "Set2") 
+barplot((allQCompl),beside=TRUE,
+        col = c("#4296f5","#f5ec42"),
+        space = 1,
+        ylim = c(0, 100),
+        main = "Frygt for misbrug af vores data - set for digitale indvandrere",
+        ylab = "Antal deltagere i %",
+        xlab = "baseret på de sidste 5 spørgsmål",
+        names.arg = c(prct3y, prct3n),
+        legend = c("% tryg","% ikke tryg"), args.legend = list(x = "topright", ncol = 1))
 
 #################### Frygt for misbrug af data analyse for kvinder   ###############################
 
@@ -1470,6 +1654,30 @@ barplot((womanQ8),beside=TRUE,
         names.arg = c(prct1y, prct1n),
         legend = c("% Ja","% Nej"), args.legend = list(x = "topleft", ncol = 1))
 
+### samled svar. svar_4 + svar_5 + svar_6 + svar_7 + svar_8 i prct
+##spørgsmål allQ8Y og allQ8N er byttet om for at afspejle det skeptiske 
+#Frygt for misbrug af vores data - kvinder
+hellnowAll <- womanQ4N + womanQ5N + womanQ6N + womanQ7N + womanQ8Y
+hellyesAll <- womanQ4Y + womanQ5Y + womanQ6Y + womanQ7Y + womanQ8N
+hellnowAll <- hellnowAll / 110 * 100
+hellyesAll <- hellyesAll  / 110 * 100
+prct3y <- format(round(hellyesAll, 2), nsmall = 2)
+prct3y
+prct3n <- format(round(hellnowAll, 2), nsmall = 2)
+svarCompl <- c(hellyesAll, hellnowAll)
+allQCompl <- data.frame(svarCompl)
+allQCompl <- as.matrix(allQCompl)
+coul <- brewer.pal(5, "Set2") 
+barplot((allQCompl),beside=TRUE,
+        col = c("#42f599","#7836eb"),
+        space = 1,
+        ylim = c(0, 100),
+        main = "Frygt for misbrug af vores data - set for Kvinder",
+        ylab = "Antal deltagere i %",
+        xlab = "baseret på de sidste 5 spørgsmål",
+        names.arg = c(prct3y, prct3n),
+        legend = c("% tryg","% ikke tryg"), args.legend = list(x = "topright", ncol = 1))
+
 #################### Frygt for misbrug af data analyse for Mænd   ###############################
 replies <- read.csv("data/reply.csv")
 View(replies)
@@ -1627,6 +1835,31 @@ barplot((manQ8),beside=TRUE,
         xlab = "8.	frygter du at dine data vil indgå i en overvågnings kultur?",
         names.arg = c(prct1y, prct1n),
         legend = c("% Ja","% Nej"), args.legend = list(x = "topleft", ncol = 1))
+
+
+### samled svar. svar_4 + svar_5 + svar_6 + svar_7 + svar_8 i prct
+##spørgsmål allQ8Y og allQ8N er byttet om for at afspejle det skeptiske 
+#Frygt for misbrug af vores data - mænd
+hellnowAll <- manQ4N + manQ5N + manQ6N + manQ7N + manQ8Y
+hellyesAll <- manQ4Y + manQ5Y + manQ6Y + manQ7Y + manQ8N
+hellnowAll <- hellnowAll / 90 * 100
+hellyesAll <- hellyesAll  / 90 * 100
+prct3y <- format(round(hellyesAll, 2), nsmall = 2)
+prct3y
+prct3n <- format(round(hellnowAll, 2), nsmall = 2)
+svarCompl <- c(hellyesAll, hellnowAll)
+allQCompl <- data.frame(svarCompl)
+allQCompl <- as.matrix(allQCompl)
+coul <- brewer.pal(5, "Set2") 
+barplot((allQCompl),beside=TRUE,
+        col = c("blue","red"),
+        space = 1,
+        ylim = c(0, 100),
+        main = "Frygt for misbrug af vores data - set for Mænd",
+        ylab = "Antal deltagere i %",
+        xlab = "baseret på de sidste 5 spørgsmål",
+        names.arg = c(prct3y, prct3n),
+        legend = c("% tryg","% ikke tryg"), args.legend = list(x = "topright", ncol = 1))
 
 
 # CLEAN UP #################################################
